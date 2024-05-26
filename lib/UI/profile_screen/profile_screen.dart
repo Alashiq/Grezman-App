@@ -4,14 +4,14 @@ import 'package:get/get.dart';
 
 import '../../Features/Auth/Controllers/auth_controller.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MainLayout(
-      pageId: 1,
-      title: 'الرئيسية',
+      pageId: 3,
+      title: 'حسابي',
       child: GetBuilder<AuthController>(
         builder: (authController) => Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         SizedBox(height: 10),
                         Text(
-                          "كشف حساب" + authController.user!.firstname!,
+                          "كشف " + authController.user!.firstname!,
                           style: TextStyle(
                             fontFamily: 'Swissra-Normal',
                             color: Color(0xff0f49a3),

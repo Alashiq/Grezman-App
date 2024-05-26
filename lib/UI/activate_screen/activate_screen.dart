@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../Features/Auth/Controllers/auth_controller.dart';
+import '../../Utils/logout.dart';
 
 class ActivateScreen extends StatelessWidget {
   const ActivateScreen({super.key});
@@ -24,6 +25,8 @@ class ActivateScreen extends StatelessWidget {
                 color: Colors.white,
               ),
               onPressed: () {
+                Logout().logout();
+
                 Get.back();
               },
             ),
@@ -33,7 +36,7 @@ class ActivateScreen extends StatelessWidget {
               style: TextStyle(
                 fontFamily: 'Swissra-Normal',
                 color: Colors.white,
-                fontSize: 17,
+                fontSize: 19,
               ),
             ),
             centerTitle: true,
@@ -164,6 +167,8 @@ class ActivateScreen extends StatelessWidget {
                             ),
                             Container(
                               child: TextField(
+                                cursorWidth: 0.0,
+
                                 controller: authController.otpIn,
                                 textAlign: TextAlign.left,
                                 textDirection: TextDirection.rtl,

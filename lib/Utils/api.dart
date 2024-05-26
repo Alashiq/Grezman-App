@@ -4,14 +4,14 @@ import 'package:http/http.dart' as http;
 import '../Features/Auth/Controllers/auth_controller.dart';
 
 class SharedApi {
-  String baseUrl = "http://192.168.88.82:8000/app/v1/api/";
+  String baseUrl = "http://10.100.106.242:8000/app/v1/api/";
 
   Map<String, String> getToken() {
     AuthController authController = Get.find();
-    // String? token = authController.user?.token ?? "Bad Request";
-    String? token = "Bad Request";
+    String? token = authController.user?.token ?? "Bad Request";
     return {
       "Content-Type": "application/json",
+      "Accept": "application/json",
       "Authorization": "Bearer " + token.toString(),
     };
   }

@@ -1,11 +1,14 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 import 'Config/app_binding.dart';
 import 'Config/routes.dart';
 
-main() {
+main() async {
+  await GetStorage.init();
+
   runApp(MyApp());
 }
 

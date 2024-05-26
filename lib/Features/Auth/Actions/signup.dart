@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_starter/Themes/Widgets/loading.dart';
 import 'package:get/get.dart';
 
-import '../../../Config/shared_preferences.dart';
 import '../../../Const/loading_status.dart';
 import '../../../Themes/Alerts/errorMessage.dart';
 import '../../../Themes/Alerts/internetMessage.dart';
@@ -12,10 +11,11 @@ import '../../../Utils/api.dart';
 import '../Controllers/auth_controller.dart';
 import '../Models/user_model.dart';
 
-mixin ActivateMixin {
-  TextEditingController otpIn = TextEditingController();
+mixin SignupMixin {
+  TextEditingController firstNameIn = TextEditingController();
+  TextEditingController lastNameIn = TextEditingController();
 
-  activate() async {
+  signup() async {
     final AuthController authController = Get.find();
 
     // Validation
@@ -23,15 +23,11 @@ mixin ActivateMixin {
     // Call API
     try {
       showLoading();
-      authController.user = UserModel.fromJson({
-        "loadState": LoadingStatus.IN_PROGRESS,
-      });
-
-      final response = await SharedApi().postNoAuth(
-        urlPath: 'user/activate',
+      final response = await SharedApi().postAuth(
+        urlPath: 'user/signup',
         bodyData: json.encode({
-          'phone': authController.phone,
-          'otp': otpIn.text,
+          'first_name': firstNameIn.text,
+          'last_name': lastNameIn.text,
         }),
       );
       stopLoading();
@@ -40,14 +36,7 @@ mixin ActivateMixin {
         final jsonData = json.decode(response.body);
         jsonData['user']['loadState'] = LoadingStatus.DONE;
         authController.user = UserModel.fromJson(jsonData['user']);
-        otpIn.clear();
-        print(authController.user!.token!);
-        saveString("token", authController.user!.token!);
-
-        if (authController.user!.status == 1)
-          Get.toNamed("/signup");
-        else
-          Get.toNamed("/home");
+        Get.toNamed("/home");
       } else {
         final jsonData = json.decode(response.body);
         showErrorMessage(jsonData['message']);
