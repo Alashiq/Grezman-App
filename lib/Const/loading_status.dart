@@ -6,7 +6,7 @@ enum LoadingStatus {
   CREATED("تم الادخال", 201),
   EMPTY("القائمة فارغة", 204),
   BAD_REQUEST("حدث خطأ ما", 400),
-  NOT_AUTH("القائمة فارغة", 401),
+  NOT_AUTH("انتهت الجلسة", 401),
   No_Permission("لا يوجد صلاحية", 403),
   NO_INTERNET("لا يوجد إتصال بالإنترنت", 404);
 

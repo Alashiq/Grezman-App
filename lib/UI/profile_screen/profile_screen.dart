@@ -33,7 +33,7 @@ class ProfileScreen extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Text(
                           "كشف " + authController.user!.firstname!,
                           style: TextStyle(

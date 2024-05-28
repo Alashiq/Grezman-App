@@ -31,7 +31,7 @@ class BottomBar extends StatelessWidget {
                 img: "assets/svg/bill.svg",
                 isActive: activeTab == 2 ? true : false,
                 label: "الفاتورة",
-                route: "/home",
+                route: "/main_items",
               ),
               NavigationItemWidget(
                 img: "assets/svg/user.svg",

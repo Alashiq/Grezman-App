@@ -4,24 +4,9 @@ import 'package:flutter_starter/Features/Auth/Actions/logout.dart';
 import 'package:flutter_starter/Features/Auth/Actions/onboarding.dart';
 import 'package:flutter_starter/Features/Auth/Actions/signup.dart';
 import 'package:flutter_starter/Features/Auth/Actions/start_the_app.dart';
+import 'package:flutter_starter/Features/Item/Actions/load_items.dart';
 import 'package:get/get.dart';
 
 import '../../../Const/loading_status.dart';
-import '../Actions/login.dart';
-import '../Models/user_model.dart';
 
-class AuthController extends GetxController
-    with
-        StartTheAppMixin,
-        LoginMixin,
-        ActivateMixin,
-        SignupMixin,
-        LogoutMixin,
-        AuthMixin,
-        OnBoardingMixin {
-  String phone = "";
-
-  UserModel? user = UserModel.fromJson({
-    "loadState": LoadingStatus.IN_PROGRESS,
-  });
-}
+class ItemController extends GetxController with LoadItemsMixin {}
