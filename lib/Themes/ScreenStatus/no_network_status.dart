@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../Utils/color_list.dart';
+import '../../Const/color_list.dart';
 
 class NoNetworkStatus extends StatelessWidget {
   final Function? onInit;

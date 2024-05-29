@@ -15,7 +15,6 @@ class BottomBar extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
           height: 80,
-          width: 390,
           color: Colors.white,
           alignment: Alignment.center,
           child: Row(

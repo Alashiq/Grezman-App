@@ -20,7 +20,7 @@ mixin LoginMixin {
     try {
       showLoading();
       final response = await SharedApi().postNoAuth(
-        urlPath: 'user/login',
+        urlPath: 'login',
         bodyData: json.encode({
           'phone': phoneLoginIn.text,
         }),

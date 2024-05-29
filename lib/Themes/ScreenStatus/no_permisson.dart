@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class EmptyBox extends StatelessWidget {
+class NoPermisson extends StatelessWidget {
   final Function? onInit;
   final double? height;
-  const EmptyBox({Key? key, @required this.onInit, @required this.height})
+  const NoPermisson({Key? key, @required this.onInit, @required this.height})
       : super(key: key);
 
   @override
@@ -26,7 +26,7 @@ class EmptyBox extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'assets/img/empty2.png',
+                'assets/img/noPermission.webp',
                 height: 105,
                 width: 105,
               ),
@@ -34,7 +34,7 @@ class EmptyBox extends StatelessWidget {
                 height: 20,
               ),
               Text(
-                "لا يوجد عناصر",
+                "لا يمكنك",
                 style: TextStyle(
                     fontFamily: 'Swissra-Medium',
                     fontSize: 17,
@@ -47,7 +47,7 @@ class EmptyBox extends StatelessWidget {
               Container(
                 margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
                 child: Text(
-                  "هذه الصفحة لا تحتوي على اي عناصر حاليا",
+                  "ليس لديك الصلاحية للوصول إلى هذه الصفحة",
                   style: TextStyle(
                     fontFamily: 'Swissra-Normal',
                     color: Color(0xff9a9a9a),

@@ -1,43 +1,42 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_starter/Themes/Widgets/loading.dart';
 import 'package:get/get.dart';
 
-import '../../../Const/loading_status.dart';
 import '../../../Themes/Alerts/errorMessage.dart';
 import '../../../Themes/Alerts/internetMessage.dart';
+import '../../../Themes/Alerts/successMessage.dart';
+import '../../../Themes/Widgets/loading.dart';
 import '../../../Utils/api.dart';
 import '../../../Utils/logout.dart';
 import '../Controllers/auth_controller.dart';
-import '../Models/user_model.dart';
 
-mixin SignupMixin {
-  TextEditingController firstNameIn = TextEditingController();
-  TextEditingController lastNameIn = TextEditingController();
+mixin EditNameMixin {
+  bool openEditName = false;
+  TextEditingController firstNameEditIn = TextEditingController();
+  TextEditingController lastNameEditIn = TextEditingController();
 
-  signup() async {
+  editName() async {
     final AuthController authController = Get.find();
-
-    // Validation
 
     // Call API
     try {
       showLoading();
       final response = await SharedApi().postAuth(
-        urlPath: 'user/signup',
+        urlPath: 'user/name',
         bodyData: json.encode({
-          'first_name': firstNameIn.text,
-          'last_name': lastNameIn.text,
+          'first_name': firstNameEditIn.text,
+          'last_name': lastNameEditIn.text,
         }),
       );
       stopLoading();
-      print(response.statusCode);
+
       if (response.statusCode == 200) {
-        final jsonData = json.decode(response.body);
-        jsonData['user']['loadState'] = LoadingStatus.DONE;
-        authController.user = UserModel.fromJson(jsonData['user']);
-        Get.toNamed("/home");
+        authController.user!.firstname = firstNameEditIn.text;
+        authController.user!.lastname = lastNameEditIn.text;
+        openEditName = false;
+        authController.update();
+        showSuccessMessage("تم تحديث الإسم بنجاح");
       } else if (response.statusCode == 401) {
         Logout().logout();
       } else {
@@ -48,6 +47,5 @@ mixin SignupMixin {
       stopLoading();
       showInternetMessage("تأكد من إتصالك بالإنترنت");
     }
-    // End Call API
   }
 }

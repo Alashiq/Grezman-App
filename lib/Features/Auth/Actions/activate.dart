@@ -28,7 +28,7 @@ mixin ActivateMixin {
       });
 
       final response = await SharedApi().postNoAuth(
-        urlPath: 'user/activate',
+        urlPath: 'activate',
         bodyData: json.encode({
           'phone': authController.phone,
           'otp': otpIn.text,

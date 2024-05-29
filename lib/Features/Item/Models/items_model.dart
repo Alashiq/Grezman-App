@@ -44,6 +44,15 @@ class ItemListModel extends LoadingStatusClass {
     );
   }
 
+  factory ItemListModel.disconnect() {
+    return ItemListModel(
+      loadState: LoadingStatus.NO_INTERNET,
+      page: 1,
+      last_page: 1,
+      list: [],
+    );
+  }
+
   factory ItemListModel.firstDone(page, data) {
     return ItemListModel.fromJson({
       "loadState": LoadingStatus.DONE,

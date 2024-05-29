@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../Utils/color_list.dart';
-
 class NoNetwork extends StatelessWidget {
   final Function? onInit;
   final double? height;
@@ -12,68 +10,90 @@ class NoNetwork extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
       height: height,
       width: double.infinity,
       alignment: Alignment.center,
       child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              'assets/img/no-internet.png',
-              height: 180,
-              width: 180,
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Text(
-              "إنقطع الإتصال",
-              style: TextStyle(
-                  fontFamily: 'Swissra-Normal',
-                  fontSize: 24,
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xffffca54)),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-              margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
-              child: Text(
-                "نعتذر لا يتوفر اي اتصال بالإنترنت , قم بالتأكد من اتصالك بالإنترنت وحاول مجددا",
+        child: Container(
+          padding: EdgeInsets.fromLTRB(20, 30, 20, 20),
+          margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(18),
+            border: Border.all(color: Color(0xffeeeeee), width: 1.2),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                'assets/img/no-internet.png',
+                height: 105,
+                width: 105,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                "إنقطع الإتصال",
                 style: TextStyle(
-                  fontFamily: 'Swissra-Normal',
-                  color: Color(0xff7a7a7a),
-                ),
-                textAlign: TextAlign.center,
+                    fontFamily: 'Swissra-Medium',
+                    fontSize: 17,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xff121212)),
               ),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Container(
-              height: 52,
-              width: 160,
-              child: ElevatedButton(
-                onPressed: () async {
-                  if (onInit != null) {
-                    await onInit!();
-                  }
-                },
+              SizedBox(
+                height: 15,
+              ),
+              Container(
+                margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
                 child: Text(
-                  "إعادة تحميل",
-                  style: GoogleFonts.cairo(
-                    fontSize: 16,
+                  "نعتذر لا يتوفر اي اتصال بالإنترنت , قم بالتأكد من اتصالك بالإنترنت وحاول مجددا",
+                  style: TextStyle(
+                    fontFamily: 'Swissra-Normal',
+                    color: Color(0xff9a9a9a),
                   ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColor.BASE_BUTTON.color,
+                  textAlign: TextAlign.center,
                 ),
               ),
-            )
-          ],
+              SizedBox(
+                height: 25,
+              ),
+              Container(
+                height: 46,
+                width: 144,
+                child: ElevatedButton(
+                  onPressed: () async {
+                    if (onInit != null) {
+                      await onInit!();
+                    }
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.refresh,
+                        color: Colors.white,
+                      ),
+                      SizedBox(width: 6),
+                      Text(
+                        "إعادة تحميل",
+                        style: GoogleFonts.cairo(
+                          fontSize: 15,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                  style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.all(0),
+                      backgroundColor: Color(0xff229bb7),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      )),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

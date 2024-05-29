@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter_starter/Features/Item/Models/items_model.dart';
+import 'package:flutter_starter/Features/Notification/Models/items_model.dart';
 import 'package:flutter_starter/Utils/logout.dart';
 import 'package:get/get.dart';
 
@@ -8,34 +9,34 @@ import '../../../Const/loading_status.dart';
 import '../../../Themes/Alerts/internetMessage.dart';
 import '../../../Themes/Snakbars/response_snakbar.dart';
 import '../../../Utils/api.dart';
-import '../Controllers/item_controller.dart';
+import '../Controllers/notification_controller.dart';
 
-mixin LoadItemsMixin {
-  ItemListModel? itemsList = ItemListModel.initial();
+mixin LoadNotificationsMixin {
+  NotificationListModel? itemsList = NotificationListModel.initial();
 
   loadItems() async {
-    final ItemController itemController = Get.find();
+    final NotificaionController notificaionController = Get.find();
 
     try {
       if (itemsList!.page == 1) {
-        itemsList = ItemListModel.proccess();
+        itemsList = NotificationListModel.proccess();
       } else {
         itemsList!.loadState = LoadingStatus.IN_SECOND_PROGRESS;
       }
-      itemController.update();
+      notificaionController.update();
       await Future.delayed(Duration(milliseconds: 1000), () {});
 
-      final response =
-          await SharedApi().getAuth(urlPath: 'item?page=${itemsList!.page}');
+      final response = await SharedApi()
+          .getAuth(urlPath: 'notification?page=${itemsList!.page}');
 
       if (response.statusCode == 200) {
         var jsonData = json.decode(response.body);
 
         if (itemsList!.page == 1) {
-          itemsList =
-              ItemListModel.firstDone(itemsList!.page!, jsonData['data']);
+          itemsList = NotificationListModel.firstDone(
+              itemsList!.page!, jsonData['data']);
         } else {
-          itemsList!.list!.addAll(ItemListModel.fromJson({
+          itemsList!.list!.addAll(NotificationListModel.fromJson({
             "list": jsonData['data']['data'],
           }).list!);
           itemsList!.loadState = LoadingStatus.DONE;
@@ -55,14 +56,14 @@ mixin LoadItemsMixin {
       } else {
         itemsList!.loadState = LoadingStatus.BAD_REQUEST;
       }
-      itemController.update();
+      notificaionController.update();
     } on Exception catch (_) {
       if (itemsList!.page != 1) {
         itemsList!.loadState = LoadingStatus.DONE;
       } else {
-        itemsList = ItemListModel.disconnect();
+        itemsList = NotificationListModel.disconnect();
       }
-      itemController.update();
+      notificaionController.update();
       showInternetMessage("تأكد من إتصالك بالإنترنت");
     }
     // End Call API

@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
-import 'bottom_bar.dart';
-import 'main_app_bar.dart';
+import 'package:flutter_starter/Themes/Widgets/back_app_bar.dart';
 
-class MainLayout extends StatelessWidget {
-  final int pageId;
+class BackLayout extends StatelessWidget {
   final String title;
   final Widget? child;
 
-  const MainLayout(
-      {super.key,
-      required this.pageId,
-      @required this.child,
-      required this.title});
+  const BackLayout({super.key, @required this.child, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +22,9 @@ class MainLayout extends StatelessWidget {
                 child: child,
               ),
             ),
-            MainAppBar(
+            BackAppBar(
               title: title,
             ),
-            BottomBar(activeTab: pageId),
           ],
         ),
       ),

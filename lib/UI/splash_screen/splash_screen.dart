@@ -21,7 +21,7 @@ class SplashScreen extends StatelessWidget {
                   onInit: controller.auth,
                   height: null,
                 )
-              : controller.user!.isLoading()
+              : controller.user!.isLoading() || controller.user!.isLoadSuccess()
                   ? Container(
                       alignment: Alignment.center,
                       child: Column(

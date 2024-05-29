@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:get/get.dart';
 
 screenHeight(BuildContext context, double val) {
   return MediaQuery.of(context).size.height -
