@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_starter/Features/Item/Controllers/item_controller.dart';
-import 'package:flutter_starter/Features/Item/Models/items_model.dart';
 import 'package:flutter_starter/UI/main_Items_screen/widgets/loading_items_list_widget.dart';
 import 'package:flutter_starter/Themes/Widgets/main_layout.dart';
 import 'package:flutter_starter/Utils/auto_load.dart';
@@ -30,19 +29,6 @@ class MainItemsScreen extends StatelessWidget {
             //
             ),
       ),
-    );
-  }
-}
-
-class ItemWidgetInList extends StatelessWidget {
-  final ItemItemModel item;
-  const ItemWidgetInList({super.key, required this.item});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.orange,
-      child: Text(item.name!),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_starter/Themes/ScreenStatus/no_permisson.dart';
+import 'package:get/get.dart';
 
 import '../../../Features/Item/Models/items_model.dart';
 import '../../../Utils/screen_size.dart';
@@ -26,7 +27,46 @@ class LoadingItemsListWidget extends StatelessWidget {
         : list!.isLoadSuccess() || list!.isSecondLoading()
             ? Column(
                 children: [
+                  Container(
+                    padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                    alignment: Alignment.centerLeft,
+                    child: Container(
+                      width: 140,
+                      child: ElevatedButton(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.add,
+                              color: Colors.white,
+                            ),
+                            SizedBox(width: 5),
+                            Container(
+                              padding: EdgeInsets.only(top: 3),
+                              child: Text(
+                                "اضف عنصر",
+                                style: TextStyle(
+                                  fontFamily: 'Swissra-Medium',
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        onPressed: () => Get.toNamed("/new_item"),
+                        style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                          backgroundColor: Color(0xff229bb7),
+                        ),
+                      ),
+                    ),
+                  ),
                   ListView.builder(
+                    padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
                     shrinkWrap: true,
                     physics: const ScrollPhysics(),
                     itemCount: list!.list!.length,
