@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter_starter/Features/Auth/Controllers/auth_controller.dart';
-import 'package:flutter_starter/Features/Item/Models/items_model.dart';
 import 'package:flutter_starter/Features/Notification/Models/items_model.dart';
 import 'package:flutter_starter/Utils/logout.dart';
 import 'package:get/get.dart';

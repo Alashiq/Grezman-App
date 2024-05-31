@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_starter/Themes/Widgets/loading.dart';
 import 'package:get/get.dart';
 
-import '../../../Themes/Alerts/errorMessage.dart';
+import '../../../Themes/Alerts/error_message.dart';
 import '../../../Themes/Alerts/internetMessage.dart';
 import '../../../Utils/api.dart';
 import '../Controllers/auth_controller.dart';

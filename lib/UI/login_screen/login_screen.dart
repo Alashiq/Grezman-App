@@ -55,6 +55,7 @@ class LoginScreen extends StatelessWidget {
                         child: Column(
                           children: [
                             TextField(
+                              keyboardType: TextInputType.number,
                               controller: authController.phoneLoginIn,
                               decoration: InputDecoration(
                                 prefixIcon: Icon(

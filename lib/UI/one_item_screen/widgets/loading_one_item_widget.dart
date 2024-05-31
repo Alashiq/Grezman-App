@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_starter/Features/Item/Models/one_item_model.dart';
 import 'package:flutter_starter/Themes/ScreenStatus/no_permisson.dart';
 
-import '../../../Features/Item/Models/items_model.dart';
 import '../../../Utils/screen_size.dart';
 import '../../../Themes/ScreenStatus/empty_box.dart';
 import '../../../Themes/ScreenStatus/no_network.dart';

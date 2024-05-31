@@ -15,7 +15,16 @@ class BottomBar extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
           height: 80,
-          color: Colors.white,
+          decoration: BoxDecoration(
+            color: const Color(0xffffffff),
+            boxShadow: [
+              BoxShadow(
+                offset: const Offset(0.00, -1.00),
+                color: const Color(0xff000000).withOpacity(0.07),
+                blurRadius: 6,
+              ),
+            ],
+          ),
           alignment: Alignment.center,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,

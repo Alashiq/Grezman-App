@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 
 import '../../../Config/shared_preferences.dart';
 import '../../../Const/loading_status.dart';
-import '../../../Themes/Alerts/errorMessage.dart';
+import '../../../Themes/Alerts/error_message.dart';
 import '../../../Themes/Alerts/internetMessage.dart';
 import '../../../Utils/api.dart';
 import '../Controllers/auth_controller.dart';

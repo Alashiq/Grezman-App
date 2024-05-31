@@ -6,7 +6,7 @@ import 'package:flutter_starter/Themes/Alerts/successMessage.dart';
 import 'package:flutter_starter/Utils/logout.dart';
 import 'package:get/get.dart';
 
-import '../../../Themes/Alerts/errorMessage.dart';
+import '../../../Themes/Alerts/error_message.dart';
 import '../../../Themes/Alerts/internetMessage.dart';
 import '../../../Themes/Widgets/loading.dart';
 import '../../../Utils/api.dart';

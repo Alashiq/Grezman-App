@@ -45,13 +45,21 @@ class ProfileScreen extends StatelessWidget {
                           ),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(70),
-                            child: Image.network(
-                              authController.user!.photo!,
-                              height: 110,
-                              width: 110,
-                              alignment: Alignment.center,
-                              fit: BoxFit.cover,
-                            ),
+                            child: authController.showUserPhoto == null
+                                ? Image.network(
+                                    authController.user!.photo!,
+                                    height: 110,
+                                    width: 110,
+                                    alignment: Alignment.center,
+                                    fit: BoxFit.cover,
+                                  )
+                                : Image.file(
+                                    authController.showUserPhoto!,
+                                    height: 110,
+                                    width: 110,
+                                    alignment: Alignment.center,
+                                    fit: BoxFit.cover,
+                                  ),
                           ),
                         ),
                       ),
@@ -67,7 +75,9 @@ class ProfileScreen extends StatelessWidget {
                           ),
                         ),
                         child: IconButton(
-                          onPressed: () async {},
+                          onPressed: () async {
+                            await authController.selectPhoto();
+                          },
                           icon: Icon(
                             Icons.photo_camera,
                             size: 26,

@@ -1,6 +1,7 @@
 import 'package:flutter_starter/Features/Auth/Actions/activate.dart';
 import 'package:flutter_starter/Features/Auth/Actions/auth.dart';
 import 'package:flutter_starter/Features/Auth/Actions/edit_name.dart';
+import 'package:flutter_starter/Features/Auth/Actions/edit_photo.dart';
 import 'package:flutter_starter/Features/Auth/Actions/logout.dart';
 import 'package:flutter_starter/Features/Auth/Actions/onboarding.dart';
 import 'package:flutter_starter/Features/Auth/Actions/signup.dart';
@@ -20,7 +21,8 @@ class AuthController extends GetxController
         LogoutMixin,
         AuthMixin,
         OnBoardingMixin,
-        EditNameMixin {
+        EditNameMixin,
+        EditPhotoMixin {
   String phone = "";
 
   UserModel? user = UserModel.fromJson({

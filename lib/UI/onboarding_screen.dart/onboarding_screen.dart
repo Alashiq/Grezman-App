@@ -95,6 +95,7 @@ class OnBoardingScreen extends StatelessWidget {
                   style: const TextStyle(
                     fontFamily: 'Adelle',
                     fontWeight: FontWeight.w500,
+                    color: Colors.white,
                   ),
                 ),
               ),

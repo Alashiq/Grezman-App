@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter/Themes/Alerts/alertMessage.dart';
-import 'package:flutter_starter/Themes/Alerts/successMessage.dart';
+import 'package:flutter_starter/Themes/Alerts/alert_message.dart';
 import 'package:flutter_starter/Utils/logout.dart';
 import 'package:get/get.dart';
 

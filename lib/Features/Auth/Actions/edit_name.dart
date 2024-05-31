@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../Themes/Alerts/errorMessage.dart';
+import '../../../Themes/Alerts/error_message.dart';
 import '../../../Themes/Alerts/internetMessage.dart';
 import '../../../Themes/Alerts/successMessage.dart';
 import '../../../Themes/Widgets/loading.dart';
