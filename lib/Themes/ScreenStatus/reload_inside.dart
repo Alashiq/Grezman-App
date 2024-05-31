@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_starter/Const/color_list.dart';
 
 class ReloadInside extends StatelessWidget {
   final double? height;
@@ -7,12 +8,13 @@ class ReloadInside extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
       height: height,
       width: double.infinity,
       alignment: Alignment.center,
       child: SingleChildScrollView(
-        child: CircularProgressIndicator(),
+        child: CircularProgressIndicator(
+          color: AppColor.BASE_BUTTON.color,
+        ),
       ),
     );
   }

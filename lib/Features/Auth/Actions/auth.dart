@@ -36,7 +36,7 @@ mixin AuthMixin {
         if (authController.user!.status == 1)
           Get.toNamed("/signup");
         else
-          Get.toNamed("/home");
+          Get.offAllNamed("/home");
       } else if (response.statusCode == 401) {
         final jsonData = json.decode(response.body);
         showErrorMessage(jsonData['message']);

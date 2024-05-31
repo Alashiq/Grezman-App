@@ -225,11 +225,28 @@ class ProfileScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Container(
+                                  height: 36,
                                   child: ElevatedButton(
-                                      onPressed: () async {
-                                        await authController.editName();
-                                      },
-                                      child: Text("حفظ")),
+                                    onPressed: () async {
+                                      await authController.editName();
+                                    },
+                                    child: Container(
+                                      padding: EdgeInsets.only(top: 4),
+                                      child: Text(
+                                        "حفظ",
+                                        style: TextStyle(
+                                          fontFamily: 'Swissra-Normal',
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                    style: ElevatedButton.styleFrom(
+                                        backgroundColor: Colors.green,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(5),
+                                        )),
+                                  ),
                                 ),
                                 SizedBox(width: 5),
                                 IconButton(
@@ -239,8 +256,8 @@ class ProfileScreen extends StatelessWidget {
                                     },
                                     icon: Icon(
                                       Icons.close,
-                                      size: 18,
-                                      color: Color(0xff6a6a6a),
+                                      size: 20,
+                                      color: Colors.red,
                                     ))
                               ],
                             ),
@@ -257,7 +274,7 @@ class ProfileScreen extends StatelessWidget {
                   style: TextStyle(
                     color: Color(0XFF455975),
                     fontFamily: 'JF-Flat',
-                    fontSize: 16,
+                    fontSize: 18,
                   ),
                 ),
                 SizedBox(height: 45),
@@ -393,7 +410,9 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 30),
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.toNamed("/remove_account");
+                  },
                   child: Text(
                     "حذف الحساب",
                     style: TextStyle(

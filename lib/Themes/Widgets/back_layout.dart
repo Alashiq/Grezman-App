@@ -16,7 +16,7 @@ class BackLayout extends StatelessWidget {
         body: Stack(
           children: [
             Container(
-              margin: EdgeInsets.fromLTRB(0, 105, 0, 80),
+              margin: EdgeInsets.fromLTRB(0, 105, 0, 0),
               child: SingleChildScrollView(
                 physics: BouncingScrollPhysics(),
                 child: child,

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter_starter/Features/Auth/Controllers/auth_controller.dart';
 import 'package:flutter_starter/Features/Item/Models/items_model.dart';
 import 'package:flutter_starter/Features/Notification/Models/items_model.dart';
 import 'package:flutter_starter/Utils/logout.dart';
@@ -16,6 +17,7 @@ mixin LoadNotificationsMixin {
 
   loadItems() async {
     final NotificaionController notificaionController = Get.find();
+    final AuthController authController = Get.find();
 
     try {
       if (itemsList!.page == 1) {
@@ -35,6 +37,8 @@ mixin LoadNotificationsMixin {
         if (itemsList!.page == 1) {
           itemsList = NotificationListModel.firstDone(
               itemsList!.page!, jsonData['data']);
+          authController.user!.notifications = 0;
+          authController.update();
         } else {
           itemsList!.list!.addAll(NotificationListModel.fromJson({
             "list": jsonData['data']['data'],

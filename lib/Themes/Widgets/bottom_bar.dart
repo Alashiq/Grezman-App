@@ -61,7 +61,10 @@ class NavigationItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Get.toNamed(route),
+      onTap: () {
+        // Navigator.push(context, SlideRight(page: ProfileScreen(), way: -1.0));
+        Get.offAndToNamed(route);
+      },
       child: Container(
         height: 44,
         width: 110,

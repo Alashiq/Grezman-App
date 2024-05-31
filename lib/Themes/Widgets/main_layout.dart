@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'bottom_bar.dart';
 import 'main_app_bar.dart';
 
@@ -31,7 +32,7 @@ class MainLayout extends StatelessWidget {
             MainAppBar(
               title: title,
             ),
-            BottomBar(activeTab: pageId),
+            Hero(tag: "bottmbar", child: BottomBar(activeTab: pageId)),
           ],
         ),
       ),

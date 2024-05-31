@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_starter/Themes/ScreenStatus/no_permisson.dart';
 import 'package:get/get.dart';
 
+import '../../../Features/Item/Controllers/item_controller.dart';
 import '../../../Features/Item/Models/items_model.dart';
 import '../../../Utils/screen_size.dart';
 import '../../../Themes/ScreenStatus/empty_box.dart';
@@ -54,7 +55,9 @@ class LoadingItemsListWidget extends StatelessWidget {
                             ),
                           ],
                         ),
-                        onPressed: () => Get.toNamed("/new_item"),
+                        onPressed: () {
+                          Get.toNamed("/new_item");
+                        },
                         style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                           shape: RoundedRectangleBorder(
@@ -122,19 +125,29 @@ class ItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: Color(0xffeeeeee), width: 1.2),
-      ),
-      padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-      margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
-      child: Text(
-        item.name!,
-        style: TextStyle(
-          fontFamily: 'Swissra-Normal',
-          fontSize: 18,
+    return GetBuilder<ItemController>(
+      builder: (itemController) => Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(18),
+          border: Border.all(color: Color(0xffeeeeee), width: 1.2),
+        ),
+        padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+        margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+        child: InkWell(
+          onTap: () {
+            itemController.activeItem = item;
+            Get.toNamed("/item");
+          },
+          child: Container(
+            child: Text(
+              item.name!,
+              style: TextStyle(
+                fontFamily: 'Swissra-Normal',
+                fontSize: 18,
+              ),
+            ),
+          ),
         ),
       ),
     );
