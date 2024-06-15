@@ -37,7 +37,7 @@ mixin SignupMixin {
         final jsonData = json.decode(response.body);
         jsonData['user']['loadState'] = LoadingStatus.DONE;
         authController.user = UserModel.fromJson(jsonData['user']);
-        Get.toNamed("/home");
+        Get.offAllNamed("/home");
       } else if (response.statusCode == 401) {
         Logout().logout();
       } else {
